@@ -61,7 +61,17 @@
 
 
     <script>
+
+
     var app = angular.module("mainApp", ["ngRoute"]);
+
+    app.run(function ($http, $templateCache) {
+      $http.get('/home.htm', { cache: $templateCache });
+      $http.get('/projects.htm', { cache: $templateCache });
+      $http.get('/resume.htm', { cache: $templateCache });
+      $http.get('/contact.htm', { cache: $templateCache });
+    });
+
     app.config(function($routeProvider) {
         $routeProvider
         .when("/", {
