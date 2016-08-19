@@ -4,14 +4,14 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-route.js"></script>
     <link rel="stylesheet" href="style.css">
   </head>
-  <body>
+  <body ng-app="mainApp">
 
 
     <nav class="navbar navbar-inverse">
@@ -20,135 +20,35 @@
       </div>
       <ul class="nav navbar-nav navbar-right">
         <li class="active"><a data-toggle="tab" href="#home">Home</a></li>
-        <li><a data-toggle="tab" href="#projects">Projects</a></li>
-        <li><a data-toggle="tab" href="#resume">Resume</a></li>
-        <li><a data-toggle="tab" href="#contact">Contact</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#resume">Resume</a></li>
+        <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
 
-    <div class="tab-content">
-      <div id="home" class="tab-pane fade in active container-fluid">
 
-        <div class="">
-          <div class="col-xs-4 well">
-            <h1>About Me</h1>
-            <p>
-              I am a recent graduate of McMaster University
-              from the Software Engineering program.
-            </p>
-          </div>
-          <div class="col-xs-4 well">
-            <h1>Test</h1>
-          </div>
-          <div class="col-xs-4 well">
-            <h1>Test</h1>
-          </div>
-        </div>
+    <div id="home" class="tab-pane fade in active container-fluid">
 
+    <div ng-view></div>
 
-        <p>
-
-        </p>
-      </div>
-      <div id="projects" class="tab-pane fade container">
-        <h3>Menu 1</h3>
-        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-      </div>
-      <div id="resume" class="tab-pane fade container">
-
-          <!--Header -->
-          <div class="row">
-            <div class="col-xs-4  text-left">
-              12 Doncaster Cres.<br/>
-              Newcastle, ON, L1B 1E8
-            </div>
-            <div class="col-xs-4 text-center">
-              <strong class="title">Jordan Floyd</strong>
-            </div>
-            <div class="col-xs-4 text-right">
-              (289) 776-9544<br/>
-              floyd.d.jordan@gmail.com
-            </div>
-          </div>
-
-          <!--Education -->
-          <div class="row">
-            <div class="page-header">Education</div>
-              <div class="col-xs-4">
-                Hamilton, Ontario
-              </div>
-              <div class="col-xs-4">
-                <strong>McMaster University</strong>
-              </div>
-              <div class="col-xs-4">
-                Fall 2012 - Spring 2016
-              </div>
-          </div>
-
-          <!--Languages and Technologies -->
-          <div class="row">
-
-          </div>
-
-          <!--Employement -->
-          <div class="row">
-              <div class="col-xs-4">
-
-              </div>
-              <div class="col-xs-4">
-
-              </div>
-              <div class="col-xs-4">
-
-              </div>
-          </div>
-
-          <!--Projects -->
-          <div class="row">
-              <div class="col-xs-4">
-
-              </div>
-              <div class="col-xs-4">
-
-              </div>
-              <div class="col-xs-4">
-
-              </div>
-          </div>
-
-          <!--Awards -->
-          <div class="row">
-              <div class="col-xs-4">
-
-              </div>
-              <div class="col-xs-4">
-
-              </div>
-              <div class="col-xs-4">
-
-              </div>
-          </div>
-
-          <!--Volunteering -->
-          <div class="row">
-              <div class="col-xs-4">
-
-              </div>
-              <div class="col-xs-4">
-
-              </div>
-              <div class="col-xs-4">
-
-              </div>
-          </div>
-        </div>
-      <div id="contact" class="tab-pane fade">
-        <h3>Menu 3</h3>
-        <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-      </div>
-    </div>
-
-
+    <script>
+    var app = angular.module("mainApp", ["ngRoute"]);
+    app.config(function($routeProvider) {
+        $routeProvider
+        .when("/", {
+            templateUrl : "main.htm"
+        })
+        .when("/red", {
+            templateUrl : "red.htm"
+        })
+        .when("/green", {
+            templateUrl : "green.htm"
+        })
+        .when("/blue", {
+            templateUrl : "blue.htm"
+        });
+    });
+    </script>
 
     <footer class="footer">
       Created by Jordan Floyd
