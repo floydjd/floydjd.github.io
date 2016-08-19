@@ -7,14 +7,18 @@
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-route.js"></script>
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
+
+
     <nav class="navbar navbar-inverse">
       <div class="navbar-header">
       <a class="navbar-brand" href="#home">Jordan Floyd</a>
       </div>
-      <ul class="nav navbar-nav">
+      <ul class="nav navbar-nav navbar-right">
         <li class="active"><a data-toggle="tab" href="#home">Home</a></li>
         <li><a data-toggle="tab" href="#projects">Projects</a></li>
         <li><a data-toggle="tab" href="#resume">Resume</a></li>
@@ -23,10 +27,27 @@
     </nav>
 
     <div class="tab-content">
-      <div id="home" class="tab-pane fade in active container">
-        <h3 class="page-header">Jordan Floyd</h3>
+      <div id="home" class="tab-pane fade in active container-fluid">
+
+        <div class="">
+          <div class="col-xs-4 well">
+            <h1>About Me</h1>
+            <p>
+              I am a recent graduate of McMaster University
+              from the Software Engineering program.
+            </p>
+          </div>
+          <div class="col-xs-4 well">
+            <h1>Test</h1>
+          </div>
+          <div class="col-xs-4 well">
+            <h1>Test</h1>
+          </div>
+        </div>
+
+
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+
         </p>
       </div>
       <div id="projects" class="tab-pane fade container">
@@ -54,13 +75,13 @@
           <div class="row">
             <div class="page-header">Education</div>
               <div class="col-xs-4">
-
+                Hamilton, Ontario
               </div>
               <div class="col-xs-4">
-
+                <strong>McMaster University</strong>
               </div>
               <div class="col-xs-4">
-
+                Fall 2012 - Spring 2016
               </div>
           </div>
 

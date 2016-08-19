@@ -2,21 +2,43 @@ html {
   position: relative;
   min-height: 100%;
 }
-body {
-  background-color: rgb(249, 249, 255);
+body {;
+  background-color: rgb(20, 20, 20);
+  color: white;
+  margin: 0 auto;
+  max-width: 50em;
 }
+
+#resume{
+  margin: 0 auto;
+  max-width: 50em;
+}
+
 .footer {
   position: absolute;
   bottom: 0;
   width: 100%;
   height: 60px;
-  background-color: #F1F1F1;
+  background-color: black;
+  color: white;
   text-align: center;
   padding-top: 15px;
+  max-width: 50em;
+}
+
+nav{
+  font-family: "Impact";
+  text-transform: uppercase;
+  padding-right: 20px;
 }
 
 .jumbotron{
   text-align: center;
+  background-color: rgb(0,0,0);
+}
+
+.well{
+  background-color: rgb(0,0,0);
 }
 
 .nav-login{
