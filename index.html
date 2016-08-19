@@ -11,7 +11,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-route.js"></script>
     <link rel="stylesheet" href="style.css">
   </head>
-  <body ng-app="mainApp">
+  <body ng-app="mainApp" ng-controller="mainCtrl">
 
 
     <nav class="navbar navbar-inverse">
@@ -65,7 +65,12 @@
 
     var app = angular.module("mainApp", ["ngRoute"]);
 
-
+    app.run(function ($http, $templateCache) {
+      $http.get('/home.htm', { cache: $templateCache });
+      $http.get('/projects.htm', { cache: $templateCache });
+      $http.get('/resume.htm', { cache: $templateCache });
+      $http.get('/contact.htm', { cache: $templateCache });
+    });
 
     app.config(function($routeProvider) {
         $routeProvider
@@ -84,15 +89,12 @@
         .when("/contact", {
             templateUrl : "/contact.htm"
         });
+      });
 
-        app.run(function ($http, $templateCache) {
-          $http.get('/home.htm', { cache: $templateCache });
-          $http.get('/projects.htm', { cache: $templateCache });
-          $http.get('/resume.htm', { cache: $templateCache });
-          $http.get('/contact.htm', { cache: $templateCache });
+        app.controller('mainCtrl', function($route) {
           $route.reload();
         });
-    });
+
     </script>
 
     <footer class="footer">
