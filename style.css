@@ -1,44 +1,101 @@
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans:300italic,300');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,600,600italic');
+
 html {
   position: relative;
   min-height: 100%;
 }
-body {;
-  background-color: rgb(20, 20, 20);
-  color: white;
+body {
   margin: 0 auto;
-  max-width: 50em;
+  font-family: "Open Sans", sans-serif;
 }
 
 #resume{
   margin: 0 auto;
-  max-width: 50em;
 }
 
 .footer {
   position: absolute;
+  margin: auto;
   bottom: 0;
   width: 100%;
-  height: 60px;
-  background-color: black;
+  height: 50px;
+  background-color: rgba(0,0,0,0.9);
   color: white;
   text-align: center;
   padding-top: 15px;
-  max-width: 50em;
 }
 
-nav{
-  font-family: "Impact";
-  text-transform: uppercase;
-  padding-right: 20px;
+.navbar-header a{
+  font-size: 300%;
+}
+
+.navbar-header a, .navbar-nav a{
+  color: rgba(255, 255, 255, 0.99) !important;
+}
+
+.navbar-nav a{
+  font-size: 150%;
+}
+
+@media (min-width: 768px){
+  .navbar-header{
+    padding-left: 15%;
+  }
+
+  .navbar-nav{
+    margin-right: 15%;
+  }
+}
+
+@media (max-width: 768px){
+  nav{
+    padding-right: 15%;
+    padding-left: 15%;
+  }
+
+
 }
 
 .jumbotron{
   text-align: center;
-  background-color: rgb(0,0,0);
+  background-color: transparent;
+}
+
+.jumbotron h1{
+  color: rgba(200,200,200,0.99);
+}
+
+.header-panel{
+  background-color: rgba(0, 0, 0, 0.6);
+  height: auto;
+  width: 50%;
+  text-align: center;
+  padding: 5px;
+  margin: auto;
+  margin-top: 100px;
+}
+
+nav, h1, h2, h3, h4{
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+nav{
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+nav a:hover{
+  color: rgba(100,150,100,1) !important;
+}
+
+a{
+  color: rgba(100,150,100,1);
 }
 
 .well{
-  background-color: rgb(0,0,0);
+  border-color: rgba(100,150,100,1);
+
 }
 
 .nav-login{
@@ -52,3 +109,121 @@ nav{
 .title{
   font-size: 30px;
 }
+
+.navbar{
+  border: none;
+}
+
+.nav {
+transition-duration: 1s;
+}
+
+.active{
+  background-color: rgba(100,150,100,0.5) !important;
+}
+
+.hero{
+  background: url(images/slider4.jpg) no-repeat center center fixed;
+  background-size:cover;
+  height: 500px;
+}
+
+.overlay{
+  background-color: rgba(50,50,50,0.6);
+  height:inherit;
+}
+
+.well{
+}
+
+.navbar.transparent.navbar-inverse .navbar-inner {
+   background: rgba(0,0,0,0.4);
+}
+
+.navbar-nav>.active>a, .navbar-nav>.active>a:hover, .navbar-nav>.active>a:focus {
+  background-color: rgba(75,175,75,1) !important;
+}
+
+.spaced{
+  margin: 5px;
+}
+
+.content-area{
+  margin-top: 50px;
+  margin-bottom: 100px;
+
+}
+
+.page-holder{
+  background: url(images/slider4.jpg) no-repeat center center fixed;
+  background-size: cover;
+  padding-top: 100px;
+  padding-bottom: 75px;
+}
+
+.page{
+  background-color: white;
+  margin: auto;
+  max-width: 80em;
+  padding-top: 75px;
+  padding-left: 75px;
+  padding-right: 75px;
+  padding-bottom: 75px;
+}
+
+.modal-header,
+.modal-footer{
+  background-color: rgba(0,0,0,0.99);
+  color: white;
+}
+
+
+/* ---- Resume ----*/
+
+.resume .resume-entry .row,
+.resume .last-resume-entry .row{
+  padding-bottom: 10px;
+}
+
+.resume .resume-entry{
+  padding-bottom: 30px;
+}
+
+
+
+/* ---- End Resume ----*/
+
+/* ----- Projects -----*/
+
+.project-image img{
+  height: auto;
+  width: 100%
+}
+
+.projects .row{
+  margin-bottom: 50px;
+}
+
+#cbcrook2{
+  background: url('images/cbcrook.png') no-repeat center center;
+  color: white;
+
+}
+
+#cbcrook1{
+  background: url('images/cbcrook2.png') no-repeat center center;
+  color: white;
+}
+
+#cbcrook1, #cbcrook2{
+  background-size: cover;
+  height: 250px;
+  width: auto;
+  font-weight: bold;
+  font-size: 400%;
+  padding-top: 1px;
+}
+
+
+
+/* ----- End Projects ----- */

@@ -1,0 +1,18 @@
+<nav class="navbar transparent navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" ui-sref="home">Jordan Floyd</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a ui-sref="resume" ng-class="state.current.name == 'resume' ? 'active' : ''" >Resume</a></li>
+        <li><a ui-sref="projects" ng-class="state.current.name == 'projects' ? 'active' : ''">Projects</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
