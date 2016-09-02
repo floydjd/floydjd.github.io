@@ -126,6 +126,12 @@ transition-duration: 1s;
   background: url(images/slider4.jpg) no-repeat center center fixed;
   background-size:cover;
   height: 500px;
+  animation: fadein 2s;
+}
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
 }
 
 .overlay{
@@ -166,8 +172,8 @@ transition-duration: 1s;
   margin: auto;
   max-width: 80em;
   padding-top: 75px;
-  padding-left: 75px;
-  padding-right: 75px;
+  padding-left: 60px;
+  padding-right: 60px;
   padding-bottom: 75px;
 }
 
@@ -189,6 +195,17 @@ transition-duration: 1s;
   padding-bottom: 30px;
 }
 
+@media (max-width: 768px){
+  .resume{
+    font-size: 80%;
+  }
+
+  .resume .title{
+    font-size: 150%;
+  }
+
+
+}
 
 
 /* ---- End Resume ----*/
@@ -220,7 +237,6 @@ transition-duration: 1s;
   height: 250px;
   width: auto;
   font-weight: bold;
-  font-size: 400%;
   padding-top: 1px;
 }
 
