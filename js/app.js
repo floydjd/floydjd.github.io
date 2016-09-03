@@ -1,9 +1,9 @@
 var mainApp = angular.module("mainApp", ["ngRoute", "ngCookies", "ui.router"]);
 mainApp.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
-  //
+
   // For any unmatched url, redirect to /
   $urlRouterProvider.otherwise("/");
-  //
+
   // Now set up the states
   $stateProvider
     .state('home', {
@@ -34,6 +34,10 @@ mainApp.controller("mainCtrl", mainCtrl);
 
 function mainCtrl($scope, $state){
   var state = $state.current.name;
+
+  /*  For the home state we want the nav menu
+  to be more transparent than for the other
+  pages. */
   if(state != "home"){
     $(document).ready(function(){
       $('.navbar').css('background-color', 'rgba(0,0,0,0.9)');
