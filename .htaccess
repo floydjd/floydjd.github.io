@@ -1,0 +1,3 @@
+RewriteEngine On #Turn on the rewritting engine
+#Page Default
+RewriteRule ^$ index.html [NC,L]
