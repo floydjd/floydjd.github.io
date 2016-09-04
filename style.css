@@ -73,7 +73,10 @@ body {
   text-align: center;
   padding: 5px;
   margin: auto;
-  margin-top: 100px;
+}
+
+.hero-center{
+  margin-top: 200px !important;
 }
 
 nav, h1, h2, h3, h4{
@@ -125,7 +128,7 @@ transition-duration: 1s;
 .hero{
   background: url(images/slider4.jpg) no-repeat center center fixed;
   background-size:cover;
-  height: 500px;
+  height: 650px;
   animation: fadein 2s;
 }
 
@@ -157,7 +160,6 @@ transition-duration: 1s;
 .content-area{
   margin-top: 50px;
   margin-bottom: 100px;
-
 }
 
 .page-holder{
