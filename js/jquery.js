@@ -18,6 +18,6 @@ $(document).on('click', 'nav a', function(e){
 });
 
 // Show the modal when cbcrook button is clicked
-$(document).on('click', '#cbcrook', function(e){
+$(document).on('click', '#comingSoon', function(e){
   $('#myModal').modal('show');
 });
