@@ -1,5 +1,6 @@
+import React from "react";
 import { Box, createStyles, makeStyles, Theme } from "@material-ui/core";
-import React from "react"
+import { Intro } from "@app/content";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -14,7 +15,7 @@ function App() {
   const classes = useStyles();
   return (
     <Box className={classes.root} fontFamily="Monospace" textAlign="center">
-      React App
+      <Intro/>
     </Box>
   );
 }
