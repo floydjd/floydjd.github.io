@@ -1,5 +1,6 @@
 {
   "name": "reeact-material-ts-template",
+  "homepage": "http://floydjd.github.io/",
   "version": "1.0.0",
   "private": "true",
   "workspaces": [
@@ -11,6 +12,11 @@
     "build": "yarn --cwd packages/client build",
     "test": "yarn --cwd packages/client test",
     "eject": "yarn --cwd packages/client eject",
-    "lint": "yarn --cwd packages/client lint"
+    "lint": "yarn --cwd packages/client lint",
+    "predeploy": "yarn run build",
+    "deploy": "gh-pages -d packages/client/build"
+  },
+  "devDependencies": {
+    "gh-pages": "^3.1.0"
   }
 }
