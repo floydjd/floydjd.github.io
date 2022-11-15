@@ -18,8 +18,8 @@ module.exports = {
       defaultTheme: {
         extend: {
           colors: {
-            primary: "black",
-            background: "white",
+            primary: "#111111",
+            background: "#f5f5f5",
           }
         }
       },
@@ -28,8 +28,8 @@ module.exports = {
           name: "dark",
           extend: {
             colors: {
-              primary: "white",
-              background: "black",
+              primary: "#f5f5f5",
+              background: "#111111",
             }
           }
         }

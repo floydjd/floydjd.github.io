@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   BrowserRouter,
 } from "react-router-dom";
@@ -12,10 +12,11 @@ interface AppProps {
   content: ContentConfig;
 }
 
-const App: React.FC<AppProps> = ({ content }) => {
+const App: React.FC<AppProps> = ({ content: initialConfig }) => {
+  const [content, setContent] = useState(initialConfig);
   return (
     <Theme initialTheme="default">
-      <ContentProvider value={content}>
+      <ContentProvider value={{ content, setContent }}>
         <BrowserRouter>
           <NavBar/>
           <Page/>

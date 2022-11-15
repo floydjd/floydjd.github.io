@@ -4,6 +4,8 @@ export type PageContentConfig = string | {
 } | {
   type: "unorderedList";
   value: string[];
+} | {
+  type: "contentEditor",
 };
 
 export interface PageConfig {
@@ -26,35 +28,18 @@ export const content: ContentConfig = {
       "path": "/",
       "title": "Home",
       "content": [
-        "My name is Jordan Floyd.",
-        "Here is a link to [Google](https://google.com).",
-        "Here is an ordered list",
-        {
-          "type": "orderedList",
-          "value": [
-            "This is a **test item**",
-            "Item 2",
-            "Item 3",
-          ],
-        },
-        "Here is an unordered list",
-        {
-          "type": "unorderedList",
-          "value": [
-            "This is a **test item**",
-            "Item 2",
-            "Item 3",
-          ],
-        },
+        "My name is **Jordan Floyd**.",
       ],
     },
     {
-      "path": "/about",
-      "title": "About",
+      "path": "/editor",
+      "title": "Editor",
       "content": [
-        "**Lorem** ipsum dolor sit amet, consectetur adipiscing elit.",
-        "Nulla urna purus, ultricies vel vestibulum eget, tempus eu urna.",
-        "Donec dictum, velit a tempor volutpat, nunc lorem accumsan urna, et hendrerit nibh sem ac leo.",
+        "All of the content for this site is stored in a JSON object. You can edit this JSON object below to see how changes effect the site.",
+        "_(Don't worry, the changes are not saved.)_",
+        {
+          type: "contentEditor",
+        },
       ],
     },
   ],

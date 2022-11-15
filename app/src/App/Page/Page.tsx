@@ -3,7 +3,8 @@ import { useLocation } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { PageConfig } from "../../content";
-import { useContent } from "../ContentProvider";
+import { useContent, useSetContent } from "../ContentProvider";
+import { Editor } from "./Editor";
 
 const FreeText: React.FC<{ children: string }> = ({ children }) => (
   <ReactMarkdown remarkPlugins={[remarkGfm]}>{children}</ReactMarkdown>
@@ -30,7 +31,9 @@ const UnorderedList: React.FC<ListProps> = ({ list }) => (
 );
 
 export const Page: React.FC = () => {
-  const { pages } = useContent();
+  const content = useContent();
+  const { pages } = content;
+  const setContent = useSetContent();
   const { pathname } = useLocation();
   const targetPage = pages.find(p => p.path === pathname);
   const notFoundPage: PageConfig = {
@@ -44,18 +47,21 @@ export const Page: React.FC = () => {
   const page = targetPage || notFoundPage;
   return (
     <div className="flex flex-row justify-center py-16">
-      <div className="w-134">
-        <div className="font-semibold text-xl mb-4">
-          {page.title}
-        </div>
-        {page.content.map(c => (
-          typeof c === "string" 
-            ? <FreeText>{c}</FreeText>
-            : c.type === "orderedList"
-              ? <OrderedList list={c.value} />
-              : c.type === "unorderedList"
-                ? <UnorderedList list={c.value} />
-                : null
+      <div className="w-134 space-y-4">
+        {page.content.map((c, i) => (
+          <div key={i}>
+            {
+              typeof c === "string" 
+                ? <FreeText>{c}</FreeText>
+                : c.type === "orderedList"
+                  ? <OrderedList list={c.value} />
+                  : c.type === "unorderedList"
+                    ? <UnorderedList list={c.value} />
+                    : c.type === "contentEditor"
+                      ? <Editor content={content} onChange={setContent}/>
+                      : null
+            }
+          </div>
         ))}
       </div>
     </div>

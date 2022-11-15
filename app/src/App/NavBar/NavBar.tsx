@@ -38,13 +38,15 @@ export const NavBar: React.FC = () => {
         </Link>
         <div className="flex flex-row flex-1"/>
         <div className="flex flex-row justify-end space-x-4">
-          {pages.map(page => (
-            <Link to={page.path}>
-              <MenuItem selected={page.path === pathname}>
-                  {page.title}
-              </MenuItem>
-            </Link>
-          ))}
+          {pages
+            .filter(page => pathname === "/" ? page.path !== "/" : page)
+            .map((page, i) => (
+              <Link to={page.path} key={i}>
+                <MenuItem selected={page.path === pathname}>
+                    {page.title}
+                </MenuItem>
+              </Link>
+            ))}
           {allowDarkMode ? (
             <div onClick={() => setTheme(theme === "default" ? "dark" : "default")}>
               <MenuItem>
