@@ -1,10 +1,15 @@
-import React from 'react';
-import { render, screen } from '@testing-library/react';
-import App from './App';
+import React from "react";
+import { render, screen } from "@testing-library/react";
+import App from "./App";
+import { content as prodContent, ContentConfig } from "../content";
 
-describe('App', () => {
-  it('renders name', () => {
-    render(<App />);
-    expect(screen.queryByText('Jordan Floyd')).toBeInTheDocument();
+const testContent: ContentConfig = {
+  ...prodContent,
+};
+
+describe("App", () => {
+  it("renders name", () => {
+    render(<App content={testContent} />);
+    expect(screen.queryByText("Jordan Floyd")).toBeInTheDocument();
   });
 });
