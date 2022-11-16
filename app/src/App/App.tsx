@@ -15,7 +15,7 @@ interface AppProps {
 const App: React.FC<AppProps> = ({ content: initialConfig }) => {
   const [content, setContent] = useState(initialConfig);
   return (
-    <Theme initialTheme="default">
+    <Theme initialTheme="dark">
       <ContentProvider value={{ content, setContent }}>
         <BrowserRouter>
           <NavBar/>

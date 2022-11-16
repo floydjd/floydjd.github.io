@@ -24,7 +24,7 @@ export const Theme: React.FC<ThemeProps> = ({ children, initialTheme }) => {
   const [theme, setTheme] = useState<ThemeName>(initialTheme);
   return (
     <ThemeContext.Provider value={{ theme, setTheme }}>
-      <div className={`bg-background text-primary w-full h-full ${theme}`}>
+      <div className={`bg-background text-primary overflow-scroll w-full h-full ${theme}`}>
         {children}
       </div>
     </ThemeContext.Provider>

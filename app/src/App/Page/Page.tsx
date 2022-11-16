@@ -1,13 +1,12 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
-import ReactMarkdown from "react-markdown";
-import remarkGfm from "remark-gfm";
 import { PageConfig } from "../../content";
 import { useContent, useSetContent } from "../ContentProvider";
-import { Editor } from "./Editor";
+import { Editor } from "./JsonEditor";
+import { Markdown } from "./Markdown";
 
 const FreeText: React.FC<{ children: string }> = ({ children }) => (
-  <ReactMarkdown remarkPlugins={[remarkGfm]}>{children}</ReactMarkdown>
+  <Markdown>{children}</Markdown>
 );
 
 interface ListProps {
@@ -46,8 +45,8 @@ export const Page: React.FC = () => {
 
   const page = targetPage || notFoundPage;
   return (
-    <div className="flex flex-row justify-center py-16">
-      <div className="w-134 space-y-4">
+    <div className="flex flex-row justify-center pt-20 pb-12">
+      <div className="w-134 space-y-4 px-4">
         {page.content.map((c, i) => (
           <div key={i}>
             {
@@ -58,7 +57,7 @@ export const Page: React.FC = () => {
                   : c.type === "unorderedList"
                     ? <UnorderedList list={c.value} />
                     : c.type === "contentEditor"
-                      ? <Editor content={content} onChange={setContent}/>
+                      ? <Editor value={content} onChange={setContent}/>
                       : null
             }
           </div>

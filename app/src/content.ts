@@ -17,29 +17,25 @@ export interface PageConfig {
 export interface ContentConfig {
   title: string;
   pages: PageConfig[];
-  allowDarkMode?: boolean;
+  allowThemeChange?: boolean;
 }
 
 export const content: ContentConfig = {
-  "allowDarkMode": true,
-  "title": "Jordan Floyd",
+  "allowThemeChange": true,
+  "title": "floydjdx.github.io",
   "pages": [
     {
       "path": "/",
       "title": "Home",
       "content": [
-        "My name is **Jordan Floyd**.",
-      ],
-    },
-    {
-      "path": "/editor",
-      "title": "Editor",
-      "content": [
-        "All of the content for this site is stored in a JSON object. You can edit this JSON object below to see how changes effect the site.",
-        "_(Don't worry, the changes are not saved.)_",
+        "My name is **Jordan Floyd** and this is my blog. I'm a full-stack software engineer who believes in a holistic approach to problem solving. I intend to fill this blog with a collection of my thoughts on software development and some code I've written in my free time. Predictably, this blog is an example of the latter.",
+        "I've created this site using React, but all of the content is stored in a single JSON object, which can be seen and edited below.",
         {
-          type: "contentEditor",
+          "type": "contentEditor",
         },
+        "You can add a new page by copying",
+        "```json\\\n{ \n  \"path\": \"/my-page\", \n  \"title\": \"My Page\", \n  \"content\": [\"Hello world\"] \n}\n```",
+        "into the \"pages\" array.",
       ],
     },
   ],

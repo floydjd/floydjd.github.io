@@ -22,12 +22,12 @@ const Title: React.FC = ({ children }) => (
 
 export const NavBar: React.FC = () => {
   const { theme, setTheme } = useTheme();
-  const { title, pages, allowDarkMode } = useContent();
+  const { title, pages, allowThemeChange } = useContent();
   const { pathname } = useLocation();
 
   return (
-    <div className="flex flex-row border-b justify-center">
-      <div className="flex flex-row w-134">
+    <div className="flex flex-row border-b justify-center fixed bg-background w-full z-10">
+      <div className="flex flex-row w-134 px-4">
       <Link to="/">
           <MenuItem>
             <Title>
@@ -47,7 +47,7 @@ export const NavBar: React.FC = () => {
                 </MenuItem>
               </Link>
             ))}
-          {allowDarkMode ? (
+          {allowThemeChange ? (
             <div onClick={() => setTheme(theme === "default" ? "dark" : "default")}>
               <MenuItem>
                 {
