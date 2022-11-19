@@ -24,5 +24,4 @@ const ContentContext = React.createContext<ContentContextConfig>({
 
 export const ContentProvider = ContentContext.Provider;
 
-export const useContent = () => useContext(ContentContext).content;
-export const useSetContent = () => useContext(ContentContext).setContent;
+export const useContent = () => useContext(ContentContext);

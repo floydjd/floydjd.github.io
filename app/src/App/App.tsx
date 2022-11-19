@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import {
-  BrowserRouter,
-} from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 import { ContentConfig } from "../content";
 import { ContentProvider } from "./ContentProvider";
 import { Page } from "./Page";
-import { NavBar } from "./NavBar";
 import { Theme } from "./Theme";
+import { EditModeProvider } from "./EditModeProvider";
+import { NavBarDisplay } from "./NavBar/NavBarDisplay";
+import { NavBarEditor } from "./NavBar/NavBarEditor";
 
 interface AppProps {
   content: ContentConfig;
@@ -14,14 +14,17 @@ interface AppProps {
 
 const App: React.FC<AppProps> = ({ content: initialConfig }) => {
   const [content, setContent] = useState(initialConfig);
+  const [editMode, setEditMode] = useState(false);
   return (
     <Theme initialTheme="dark">
-      <ContentProvider value={{ content, setContent }}>
-        <BrowserRouter>
-          <NavBar/>
-          <Page/>
-        </BrowserRouter>
-      </ContentProvider>
+      <EditModeProvider value={{ editMode, setEditMode }}>
+        <ContentProvider value={{ content, setContent }}>
+          <BrowserRouter>
+            {!editMode ? <NavBarDisplay/> : <NavBarEditor/>}
+            <Page/>
+          </BrowserRouter>
+        </ContentProvider>
+      </EditModeProvider>
     </Theme>
   );
 };

@@ -1,40 +1,15 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
-import { PageConfig } from "../../content";
-import { useContent, useSetContent } from "../ContentProvider";
+import { PageConfig, PageContentComponentConfig } from "../../content";
+import { useContent } from "../ContentProvider";
 import { Editor } from "./JsonEditor";
-import { Markdown } from "./Markdown";
-
-const FreeText: React.FC<{ children: string }> = ({ children }) => (
-  <Markdown>{children}</Markdown>
-);
-
-interface ListProps {
-  list: string[]; 
-}
-
-const OrderedList: React.FC<ListProps> = ({ list }) => (
-  <div className="ml-4">
-    <FreeText>
-      {list.map((v, i) => `${i + 1}. ${v}`).join("\n")}
-    </FreeText>
-  </div>
-);
-
-const UnorderedList: React.FC<ListProps> = ({ list }) => (
-  <div className="ml-4">
-    <FreeText>
-      {list.map((v) => `- ${v}`).join("\n")}
-    </FreeText>
-  </div>
-);
+import { Markdown } from "../Markdown";
+import { List } from "./List";
 
 export const Page: React.FC = () => {
-  const content = useContent();
-  const { pages } = content;
-  const setContent = useSetContent();
+  const { content, setContent } = useContent();
   const { pathname } = useLocation();
-  const targetPage = pages.find(p => p.path === pathname);
+  const targetPage = content.pages.find(p => p.path === pathname);
   const notFoundPage: PageConfig = {
     title: "Page Not Found",
     path: pathname,
@@ -44,21 +19,28 @@ export const Page: React.FC = () => {
   };
 
   const page = targetPage || notFoundPage;
+
+  const getContentItem = (contentItem: PageContentComponentConfig) => {
+    if (contentItem.type === "unorderedList") return <List list={contentItem.value} type="unordered" />;
+    if (contentItem.type === "orderedList") return <List list={contentItem.value} type="ordered" />;
+    if (contentItem.type === "contentEditor") return <Editor value={content} onChange={setContent}/>;
+    if (contentItem.type === "code" && Array.isArray(contentItem.lines)) return (
+      <Markdown>
+        {`\`\`\`${contentItem.language}\n${contentItem.lines.join("\n")}\n\`\`\``}
+      </Markdown>
+    );
+
+    console.error(`Unknown component type for ${JSON.stringify(contentItem)}`);
+    return null;
+  };
+
   return (
     <div className="flex flex-row justify-center pt-20 pb-12">
       <div className="w-134 space-y-4 px-4">
         {page.content.map((c, i) => (
           <div key={i}>
             {
-              typeof c === "string" 
-                ? <FreeText>{c}</FreeText>
-                : c.type === "orderedList"
-                  ? <OrderedList list={c.value} />
-                  : c.type === "unorderedList"
-                    ? <UnorderedList list={c.value} />
-                    : c.type === "contentEditor"
-                      ? <Editor value={content} onChange={setContent}/>
-                      : null
+              typeof c === "string" ? <Markdown>{c}</Markdown> : getContentItem(c)
             }
           </div>
         ))}
