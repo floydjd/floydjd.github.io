@@ -12,6 +12,7 @@ import json from "react-syntax-highlighter/dist/cjs/languages/prism/json";
 import { oneDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import rangeParser from "parse-numeric-range";
 import { CopyCodeButton } from "./CopyCodeButton";
+import { Link } from "react-router-dom";
 
 SyntaxHighlighter.registerLanguage("tsx", tsx);
 SyntaxHighlighter.registerLanguage("typescript", typescript);
@@ -30,12 +31,23 @@ export const Markdown: React.FC<MarkdownProps> = ({ children }) => {
       rehypePlugins={[rehypeRaw]}
       remarkPlugins={[remarkGfm]}
       components={{
-        pre: (props: any) => (
+        pre: (props) => (
           <pre className="blog-pre">
             <CopyCodeButton>{props.children}</CopyCodeButton>
             {props.children}
           </pre>
         ),
+        a: (props) => {
+          const isAbsolutePath = props.href?.match(/^(https?:)?\/\//);
+          const text = props.children.join("");
+          const anchorId = props.href && props.href.startsWith("#") ? props.href.slice(1) : undefined;
+
+          return (
+            !isAbsolutePath && props.href
+              ? <Link to={props.href} id={anchorId}>{text}</Link>
+              : <a href={props.href} id={anchorId}>{text}</a>
+          );
+        },
         code({ node, className, children: rawText }: any) {
           const match = /language-(\w+)/.exec(className || "");
           const hasMeta = node?.data?.meta;

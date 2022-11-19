@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { JsonEditor as JsonEditorReact } from "jsoneditor-react";
 import ace from "brace";
 import "jsoneditor-react/es/editor.min.css";
@@ -11,18 +11,23 @@ export interface EditorProps {
 }
 
 export const Editor: React.FC<EditorProps> = ({ value, onChange }) => {
+  const [focus, setFocus] = useState(false);
   const jsonEditorRef = useRef<any>();
 
   useEffect(
     () => {
-      const editor = jsonEditorRef && jsonEditorRef.current && jsonEditorRef.current.jsonEditor;
-      if (editor && value) { editor.update(value); }
+      if (!focus) {
+        const editor = jsonEditorRef && jsonEditorRef.current && jsonEditorRef.current.jsonEditor;
+        if (editor && value) {
+          editor.update(value);
+        }
+      }
     },
-    [jsonEditorRef, value],
+    [focus, jsonEditorRef, value],
   );
 
   return (
-    <div className="h-full">
+    <div className="h-full w-full">
       <JsonEditorReact 
         ref={jsonEditorRef}
         mode="code"
@@ -32,6 +37,8 @@ export const Editor: React.FC<EditorProps> = ({ value, onChange }) => {
         mainMenuBar={false}
         navigationBar={false}
         statusBar={false}
+        onFocus={() => setFocus(true)}
+        onBlur={() => setFocus(false)}
         theme="ace/theme/tomorrow_night"
       />
     </div>

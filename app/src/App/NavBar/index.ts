@@ -1,1 +1,1 @@
-export { NavBar } from "./NavBarFrame";
+export { NavBar } from "./NavBar";

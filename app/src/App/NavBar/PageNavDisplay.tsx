@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useContent } from "../ContentProvider";
-import { NavBar } from "./NavBarFrame";
+import { MenuItem } from "./MenuItem";
 
 export const PageNavDisplay: React.FC = () => {
   const { content } = useContent();
@@ -16,9 +16,9 @@ export const PageNavDisplay: React.FC = () => {
           .filter(page => !page.hideFromNav)
           .map((page, i) => (
             <Link to={page.path} key={i}>
-              <NavBar.MenuItem selected={page.path === pathname}>
+              <MenuItem selected={page.path === pathname}>
                   {page.title}
-              </NavBar.MenuItem>
+              </MenuItem>
             </Link>
           ))
       }

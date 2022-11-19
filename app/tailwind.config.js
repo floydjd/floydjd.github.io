@@ -20,6 +20,7 @@ module.exports = {
           colors: {
             primary: "#111111",
             background: "#f5f5f5",
+            midContrast: "#808080",
           }
         }
       },
@@ -30,6 +31,7 @@ module.exports = {
             colors: {
               primary: "#f5f5f5",
               background: "#111111",
+              midContrast: "#808080",
             }
           }
         }

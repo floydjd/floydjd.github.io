@@ -2,11 +2,10 @@ import React, { useState } from "react";
 import { BrowserRouter } from "react-router-dom";
 import { ContentConfig } from "../content";
 import { ContentProvider } from "./ContentProvider";
-import { Page } from "./Page";
 import { Theme } from "./Theme";
 import { EditModeProvider } from "./EditModeProvider";
-import { NavBarDisplay } from "./NavBar/NavBarDisplay";
-import { NavBarEditor } from "./NavBar/NavBarEditor";
+import { Page } from "./Page/Page";
+import { NavBar } from "./NavBar";
 
 interface AppProps {
   content: ContentConfig;
@@ -20,7 +19,7 @@ const App: React.FC<AppProps> = ({ content: initialConfig }) => {
       <EditModeProvider value={{ editMode, setEditMode }}>
         <ContentProvider value={{ content, setContent }}>
           <BrowserRouter>
-            {!editMode ? <NavBarDisplay/> : <NavBarEditor/>}
+            <NavBar/>
             <Page/>
           </BrowserRouter>
         </ContentProvider>
