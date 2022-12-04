@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { BrowserRouter } from "react-router-dom";
+import { HashRouter } from "react-router-dom";
 import { BlogConfig } from "../blog";
 import { Page, NavBar } from "./components";
 import { BlogProvider, EditModeProvider, Theme } from "./state";
@@ -15,10 +15,10 @@ const App: React.FC<AppProps> = ({ blog: initialBlog }) => {
     <Theme initialTheme="dark">
       <EditModeProvider value={{ editMode, setEditMode }}>
         <BlogProvider value={{ blog, setBlog }}>
-          <BrowserRouter>
+          <HashRouter>
             <NavBar/>
             <Page/>
-          </BrowserRouter>
+          </HashRouter>
         </BlogProvider>
       </EditModeProvider>
     </Theme>
