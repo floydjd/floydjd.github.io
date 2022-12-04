@@ -20,7 +20,7 @@ export const Page: React.FC = () => {
 
   return (
     <div className="bg-background flex flex-row justify-center pt-4 pb-16">
-      <div className="w-134 space-y-4 px-4">
+      <div className="w-96 sm:w-134 space-y-4 px-4">
         {
           editMode ? <PageMetadataEditor page={page} setPage={setPage} /> : null
         }

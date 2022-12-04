@@ -40,6 +40,7 @@ export const Editor: React.FC<EditorProps> = ({ value, onChange }) => {
         onFocus={() => setFocus(true)}
         onBlur={() => setFocus(false)}
         theme="ace/theme/tomorrow_night"
+        style={{ body: { fontSize: "8px" } }}
       />
     </div>
   );

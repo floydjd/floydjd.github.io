@@ -33,10 +33,14 @@ ol ol, ul ol {
     height: 500px;
 }
 
+.ace_editor * {
+  font-size: 12px;
+}
+
 .blog-pre {
   position: relative;
   width: 100%;
-  font-size: 14px;
+  font-size: 12px;
 }
 
 .code-copy-btn {
