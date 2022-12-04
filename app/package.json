@@ -29,6 +29,14 @@
       "last 1 safari version"
     ]
   },
+  "jest": {
+    "moduleNameMapper": {
+      "react-markdown": "<rootDir>/src/__stubs__/stub.tsx",
+      "remark-*": "<rootDir>/src/__stubs__/stub.ts",
+      "rehype-*": "<rootDir>/src/__stubs__/stub.ts",
+      "jsoneditor-react": "<rootDir>/src/__stubs__/jsoneditor-react.tsx"
+    }
+  },
   "dependencies": {
     "@fontsource/roboto": "^4.4.5",
     "@heroicons/react": "^2.0.13",

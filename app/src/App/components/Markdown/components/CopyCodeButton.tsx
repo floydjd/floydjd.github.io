@@ -22,8 +22,8 @@ export const CopyCodeButton: React.FC<CopyCodeButtonProps> = ({ children }) => {
   };
 
   return (
-    <div className="code-copy-btn w-4 mt-2">
-      {copying ? <CheckIcon/> : <ClipboardDocumentIcon onClick={handleClick} color={"#c8c8c8"}/>}
+    <div className="code-copy-btn w-4 mt-2" onClick={handleClick} data-testid="copy-code-button">
+      {copying ? <CheckIcon/> : <ClipboardDocumentIcon color={"#c8c8c8"}/>}
     </div>
   );
 };

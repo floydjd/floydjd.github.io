@@ -36,6 +36,7 @@ ol ol, ul ol {
 .blog-pre {
   position: relative;
   width: 100%;
+  font-size: 14px;
 }
 
 .code-copy-btn {

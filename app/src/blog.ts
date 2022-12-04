@@ -5,7 +5,7 @@ export type PageContentComponentConfig = {
   type: "unorderedList";
   value: string[];
 } | {
-  type: "contentEditor",
+  type: "blogEditor",
 } | {
   type: "code",
   language: string;
@@ -18,17 +18,17 @@ export interface PageConfig {
   path: string;
   title: string;
   content: PageContentConfig[];
-  hideFromNav?: boolean;
+  showInNav?: boolean;
 }
 
-export interface ContentConfig {
+export interface BlogConfig {
   title: string;
   pages: PageConfig[];
   allowThemeChange?: boolean;
   allowEditMode?: boolean;
 }
 
-export const content: ContentConfig = {
+export const blog: BlogConfig = {
   "allowThemeChange": true,
   "allowEditMode": true,
   "title": "**floydjdx**.github.io",
@@ -38,10 +38,10 @@ export const content: ContentConfig = {
       "title": "Home",
       "content": [
         "My name is **Jordan Floyd** and this is my blog. I'm a full-stack software engineer who believes in a holistic approach to problem solving. I intend to fill this blog with a collection of my thoughts on software development and some code I've written in my free time. Predictably, this blog is an example of the latter.",
-        "I've created this site using React, but all of the content is stored in a single JSON object, which can be seen and edited below.",
+        "I've created this blog using React, with all of the content is stored in a single JSON object, which can be seen and edited below.",
         "_(Don't worry, the object is stored in local state, so your changes won't be saved.)_",
         {
-          "type": "contentEditor",
+          "type": "blogEditor",
         },
         "You can add a new page by copying",
         {
@@ -51,7 +51,8 @@ export const content: ContentConfig = {
             "{",
             "  \"path\": \"/my-page\",",
             "  \"title\": \"My Page\",",
-            "  \"content\": [\"Hello world\"]",
+            "  \"content\": [\"Hello world\"],",
+            "  \"showInNav\": true",
             "}",
           ],
         },
@@ -62,12 +63,11 @@ export const content: ContentConfig = {
     {
       "path": "/blog-configs",
       "title": "Blog Configs",
-      "hideFromNav": true,
       "content": [
         "# Blog Configs",
         "Here I will explain how I approached making this configurable blog.",
         {
-          "type": "contentEditor",
+          "type": "blogEditor",
         },
         "At the top level, the config describes the structure of the blog but most of the content is contained in the \"pages\", and more specifically the \"content\" properties of each page. Each value in the \"content\" array is either a string, which is interpretted as Markdown, or an object, which must contain a \"type\" property so the app knows how it should be interpretted.",
         {
@@ -83,7 +83,7 @@ export const content: ContentConfig = {
         },
         "Every type corresponds to a component type and any additional fields can be used as props.",
         "# Config Edit Mode",
-        "While editing the config directly works, it isn't ideal. It's especially cumbersome for component types like \"code\" where you need to escape a lot of quotes and seperate lines manually. To improve upon this, I created an edit mode, which can be enabled by pressing the wrench icon in the top right corner.",
+        "While editing the config directly works, it isn't ideal. To improve upon this, I created an edit mode, which can be enabled by pressing the wrench icon in the top right corner.",
       ],
     },
   ],

@@ -2,13 +2,13 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { content } from "./content";
+import { blog } from "./blog";
 import "./index.css";
 import "@fontsource/roboto";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App content={content} />
+    <App blog={blog} />
   </React.StrictMode>,
   document.getElementById("root"),
 );

@@ -11,8 +11,8 @@ import markdown from "react-syntax-highlighter/dist/cjs/languages/prism/markdown
 import json from "react-syntax-highlighter/dist/cjs/languages/prism/json";
 import { oneDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import rangeParser from "parse-numeric-range";
-import { CopyCodeButton } from "./CopyCodeButton";
 import { Link } from "react-router-dom";
+import { CopyCodeButton } from "./components/CopyCodeButton";
 
 SyntaxHighlighter.registerLanguage("tsx", tsx);
 SyntaxHighlighter.registerLanguage("typescript", typescript);
@@ -23,6 +23,7 @@ SyntaxHighlighter.registerLanguage("json", json);
 
 export interface MarkdownProps {
   children: string;
+  "data-testid"?: string;
 }
 
 export const Markdown: React.FC<MarkdownProps> = ({ children }) => {

@@ -1,28 +1,25 @@
 import React, { useState } from "react";
 import { BrowserRouter } from "react-router-dom";
-import { ContentConfig } from "../content";
-import { ContentProvider } from "./ContentProvider";
-import { Theme } from "./Theme";
-import { EditModeProvider } from "./EditModeProvider";
-import { Page } from "./Page/Page";
-import { NavBar } from "./NavBar";
+import { BlogConfig } from "../blog";
+import { Page, NavBar } from "./components";
+import { BlogProvider, EditModeProvider, Theme } from "./state";
 
 interface AppProps {
-  content: ContentConfig;
+  blog: BlogConfig;
 }
 
-const App: React.FC<AppProps> = ({ content: initialConfig }) => {
-  const [content, setContent] = useState(initialConfig);
+const App: React.FC<AppProps> = ({ blog: initialBlog }) => {
+  const [blog, setBlog] = useState(initialBlog);
   const [editMode, setEditMode] = useState(false);
   return (
     <Theme initialTheme="dark">
       <EditModeProvider value={{ editMode, setEditMode }}>
-        <ContentProvider value={{ content, setContent }}>
+        <BlogProvider value={{ blog, setBlog }}>
           <BrowserRouter>
             <NavBar/>
             <Page/>
           </BrowserRouter>
-        </ContentProvider>
+        </BlogProvider>
       </EditModeProvider>
     </Theme>
   );

@@ -1,6 +1,6 @@
 import React from "react";
-import { useEditMode } from "../EditModeProvider";
-import { Markdown } from "../Markdown";
+import { useEditMode } from "../../../state/EditModeProvider";
+import { Markdown } from "../../Markdown";
 import { TextArea } from "./TextArea";
 
 export interface FreeTextProps {

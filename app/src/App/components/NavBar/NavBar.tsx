@@ -1,19 +1,18 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useContent } from "../ContentProvider";
-import { useEditMode } from "../EditModeProvider";
+import { useBlog, useEditMode } from "../../state";
 import { Markdown } from "../Markdown";
-import { AddPageButton } from "./AddPageButton";
-import { EditModeButton } from "./EditModeButton";
-import { EditTitleInput } from "./EditTitleInput";
-import { MenuItem } from "./MenuItem";
-import { PageNavDisplay } from "./PageNavDisplay";
-import { Title } from "./Title";
-import { ToggleThemeButton } from "./ToggleThemeButton";
+import { AddPageButton } from "./components/AddPageButton";
+import { EditModeButton } from "./components/EditModeButton";
+import { EditTitleInput } from "./components/EditTitleInput";
+import { MenuItem } from "./components/MenuItem";
+import { PageNavDisplay } from "./components/PageNavDisplay";
+import { Title } from "./components/Title";
+import { ToggleThemeButton } from "./components/ToggleThemeButton";
 
 export const NavBar: React.FC = () => {
-  const { content } = useContent();
-  const { title, allowThemeChange, allowEditMode } = content;
+  const { blog } = useBlog();
+  const { title, allowThemeChange, allowEditMode } = blog;
   const { editMode } = useEditMode();
 
   return (

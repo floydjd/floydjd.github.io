@@ -1,27 +1,27 @@
 import React from "react";
 import { PlusCircleIcon } from "@heroicons/react/24/solid";
-import { useContent } from "../ContentProvider";
+import { useBlog } from "../../../state";
 import { useHistory } from "react-router-dom";
 import { MenuItem } from "./MenuItem";
 
 export const AddPageButton: React.FC = () => {
-  const { content, setContent } = useContent();
+  const { blog, setBlog } = useBlog();
   const history = useHistory();
 
   const addPage = () => {
-    const newPath = `/new-page${content.pages.length}`;
-    const newTitle = `Page ${content.pages.length}`;
-    setContent({
-      ...content,
+    const newPath = `/page${blog.pages.length}`;
+    const newTitle = `Page ${blog.pages.length}`;
+    setBlog(prevBlog => ({
+      ...prevBlog,
       pages: [
-        ...content.pages, 
+        ...prevBlog.pages, 
         {
           path: newPath,
           title: newTitle,
           content: [newTitle],
         },
       ],
-    });
+    }));
 
     history.push({
       pathname: newPath,
@@ -29,7 +29,7 @@ export const AddPageButton: React.FC = () => {
   };
 
   return (
-    <div onClick={addPage}>
+    <div onClick={addPage} data-testid="add-page-button">
       <MenuItem>
         <PlusCircleIcon className="h-6 w-6"/>
       </MenuItem>

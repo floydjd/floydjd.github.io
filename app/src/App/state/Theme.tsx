@@ -24,7 +24,7 @@ export const Theme: React.FC<ThemeProps> = ({ children, initialTheme }) => {
   const [theme, setTheme] = useState<ThemeName>(initialTheme);
   return (
     <ThemeContext.Provider value={{ theme, setTheme }}>
-      <div className={`bg-background text-primary w-full h-screen ${theme}`}>
+      <div className={`bg-background text-primary w-full h-screen ${theme}`} data-testid="theme-wrapper">
         {children}
       </div>
     </ThemeContext.Provider>
