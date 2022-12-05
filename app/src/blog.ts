@@ -61,6 +61,18 @@ export const blog: BlogConfig = {
       ],
     },
     {
+      "path": "/about",
+      "title": "About",
+      "showInNav": true,
+      "content": [
+        "I have been a senior software engineer for the past six years, specializing in a wide range of areas including web development, mobile development, and backend architecture. During my career, I have had the opportunity to work with a variety of technologies and platforms, such as JavaScript, React, Node.js, and Kubernetes. I take pride in my ability to quickly learn and adapt to new technologies and I am always looking for ways to improve and optimize existing systems.",
+
+        "I am most passionate about creating high-quality, reliable software that meets the needs of its users. I am an effective communicator and enjoy working with teams to ensure that all stakeholders have a clear understanding of the project goals and how best to achieve them. I am excited to be part of a team that is passionate about their work and dedicated to delivering results.",
+        
+        "My ultimate goal is to be at the leading edge of technology, developing software solutions that are both innovative and reliable. I am looking for an opportunity that will allow me to continue to grow and develop my skills and expertise, while also providing a competitive compensation package.",
+      ],
+    },
+    {
       "path": "/blog-configs",
       "title": "Blog Configs",
       "content": [
