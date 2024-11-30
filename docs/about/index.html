@@ -18,11 +18,13 @@
     </header>
     <ul>
       <li class="">
-        <a href="/" onmouseenter="fetch(&quot;/&quot;)">home</a>
+        <a href="/" onmouseenter=
+        "fetch(&quot;/&quot;, { cache: &quot;force-cache&quot; })">home</a>
       </li>
       <li class="">
         <a href="/about" onmouseenter=
-        "fetch(&quot;/about&quot;)">about</a>
+        "fetch(&quot;/about&quot;, { cache: &quot;force-cache&quot; })">
+        about</a>
       </li>
     </ul>
   </nav>
