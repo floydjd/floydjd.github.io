@@ -23,7 +23,7 @@ const pages = [
     {
       pages.map(page => (
         <li class={pathname === page.path ? "selected" : ""}>
-          <a href={page.path}>
+          <a href={page.path} onmouseenter={`fetch("${page.path}")`}>
             {page.name}
           </a>
         </li>

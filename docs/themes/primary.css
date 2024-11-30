@@ -27,6 +27,10 @@ nav header a {
   font-size: 26px;
 }
 
+nav header {
+  font-family: "Monotype Corsiva", cursive;
+}
+
 nav ul {
   list-style-type: none;
   display: flex;
