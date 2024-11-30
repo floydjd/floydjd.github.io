@@ -1,14 +1,33 @@
+---
+const url = new URL(Astro.request.url);
+const pathname = url.pathname;
+const pages = [
+  {
+    name: 'home',
+    path: '/',
+  },
+  {
+    name: 'about',
+    path: '/about',
+  },
+];
+---
+
 <nav>
   <header>
     <a href="/">
-      floydjdx
+      Jordan Floyd
     </a>
   </header>
   <ul>
-    <li>
-      <a href="/about">
-        about
-      </a>
-    </li>
+    {
+      pages.map(page => (
+        <li class={pathname === page.path ? "selected" : ""}>
+          <a href={page.path}>
+            {page.name}
+          </a>
+        </li>
+      ))
+    }
   </ul>
 </nav>

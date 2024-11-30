@@ -1,0 +1,70 @@
+:root {
+  --primary-color: rgb(43, 128, 50);
+}
+
+html {
+  font-size: 20px;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+body {
+  margin: 0;
+}
+
+nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid gray;
+  background-color: rgb(245, 245, 245);
+  padding: 8px 32px;
+}
+
+nav header a {
+  text-decoration: none;
+  color: black;
+  font-size: 26px;
+}
+
+nav ul {
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  gap: 32px;
+}
+
+nav a {
+  text-decoration: none;
+  color: black;
+}
+
+nav a:hover {
+  color: var(--primary-color);
+}
+
+nav .selected {
+  font-weight: bold;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+article {
+  max-width: 800px;
+  line-height: 1.5;
+  margin: 0 32px;
+}
+
+article a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+article a:hover {
+  text-decoration: underline;
+}

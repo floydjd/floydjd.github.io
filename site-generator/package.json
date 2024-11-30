@@ -1,16 +1,16 @@
 {
-  "name": "galactic-gamma",
+  "name": "floydjdx.github.io",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro check && astro build && cp -r dist/ ../site",
+    "build": "astro check && astro build && rm -rf ../docs && cp -r dist/ ../docs && ./tidy.sh",
     "preview": "astro preview",
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^4.16.16",
     "@astrojs/check": "^0.9.4",
+    "astro": "^4.16.16",
     "typescript": "^5.7.2"
   }
 }
